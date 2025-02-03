@@ -12,6 +12,17 @@ class Personagem:
         self.vida = 100
         self.classe = ['fogo', 'agua', 'terra', 'ar']
     
+
+    def __str__(self) -> str:
+        return (f'Nome: {self.nome}\n'
+                f'Sexo: {self.sexo}\n'
+                f'Classe: {self.classe}\n'
+                f'Ataque: {self.dano}\n'
+                f'Defesa: {self.defesa}\n'
+                f'Nível: {self.lv}\n'
+                f'Vida: {self.vida}\n')
+    
+    
     #criar um arquivo de erro. 
 
     def personagem_base(self):
@@ -30,6 +41,9 @@ class Personagem:
 
         }
         return Personagem_dict
+    
+guerreiro = Personagem("Arthas", "Guerreiro")
+print(guerreiro)
     
         
 
