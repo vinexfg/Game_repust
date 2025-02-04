@@ -1,3 +1,10 @@
+import json
+import logging
+
+
+logging.basicConfig(filename='erro_personagem.log', level=logging.ERROR)
+
+
 print('TESTES')
 
 
@@ -42,10 +49,17 @@ class Personagem:
         }
         return Personagem_dict
     
-guerreiro = Personagem("Arthas", "Guerreiro")
-print(guerreiro)
-    
-        
+
+
+class Inimigo:
+    def __init__(self) -> None:
+        self.dano = 2
+        self.vida = 50
+        self.defesa = 20
+        self.elemento = ['fogo', 'agua', 'terra', 'ar']
+        self.nome = 'org'
+
+    def dano(self):
 
 
 
@@ -53,20 +67,6 @@ print(guerreiro)
 
 
 
-
-
-
-
-
-
-
-    
-# class classe_do_personagem:
-
-#     def guerreiro(self):
-#         dano = 15
-#         defesa = 10
-#         vidas = 120
 
 
         
