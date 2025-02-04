@@ -1,7 +1,5 @@
 import tkinter as tk
 
-
-
 def frame1():
     for widget in janela.winfo_children():
         widget.destroy()
@@ -23,7 +21,7 @@ def frame1():
     botao_novo = tk.Button(frame_menu, text="NOVO JOGO", bg="#4EA68D", font=("Agency FB", 20), fg="#F2F2F2", bd=5, relief="ridge", command=frame2)
     botao_novo.pack(pady=10)
 
-    botao_carregar = tk.Button(frame_menu, text="CARREGAR JOGO", bg="#4EA68D", font=("Agency FB", 20), fg="#F2F2F2", bd=5, relief="ridge")
+    botao_carregar = tk.Button(frame_menu, text="CARREGAR JOGO", bg="#4EA68D", font=("Agency FB", 20), fg="#F2F2F2", bd=5, relief="ridge", command=frame3)
     botao_carregar.pack(pady=10)
 
     botao_conf = tk.Button(frame_menu, text="CONFIGURAÇÕES", bg="#4EA68D", font=("Agency FB", 20), fg="#F2F2F2", bd=5, relief="ridge")
@@ -115,15 +113,11 @@ def frame2():
         sexo1.config(bg="#F2994B", fg="#F2F2F2")
         sexo2.config(fg="#4EA68D", bg="#F2F2F2")
         
-
     def pegarFeminino():
         personagem["sexo"] = "feminino"
         sexo2.config(bg="#F2994B", fg="#F2F2F2")
         sexo1.config(fg="#4EA68D", bg="#F2F2F2")
            
-
-    
-
     
     ##--------------------------------------------------------
 
@@ -205,12 +199,74 @@ def frame2():
 
     ##----------------------------------------------------------------------------------------
 
+def frame3():
+    for widget in janela.winfo_children():
+        widget.destroy()
+
+    frame_carregar = tk.Frame(janela, bg="#A67C58")
+    frame_carregar.pack(fill="both", expand=True)
+
+    selecionado = {"Escolhido": "indefinido"}
+
+    def escolherSave1():
+        selecionado["Escolhido"] = "save1"
+        save1.config(bg="#F2994B", fg="#F2F2F2")
+        save2.config(fg="#4EA68D", bg="#F2F2F2")
+        save3.config(fg="#4EA68D", bg="#F2F2F2")
+        save4.config(fg="#4EA68D", bg="#F2F2F2")
+    
+    def escolherSave2():
+        selecionado["Escolhido"] = "save2"
+        save2.config(bg="#F2994B", fg="#F2F2F2")
+        save1.config(fg="#4EA68D", bg="#F2F2F2")
+        save3.config(fg="#4EA68D", bg="#F2F2F2")
+        save4.config(fg="#4EA68D", bg="#F2F2F2")
+    
+    def escolherSave3():
+        selecionado["Escolhido"] = "save3"
+        save3.config(bg="#F2994B", fg="#F2F2F2")
+        save2.config(fg="#4EA68D", bg="#F2F2F2")
+        save1.config(fg="#4EA68D", bg="#F2F2F2")
+        save4.config(fg="#4EA68D", bg="#F2F2F2")
+    
+    def escolherSave4():
+        selecionado["Escolhido"] = "save4"
+        save4.config(bg="#F2994B", fg="#F2F2F2")
+        save2.config(fg="#4EA68D", bg="#F2F2F2")
+        save3.config(fg="#4EA68D", bg="#F2F2F2")
+        save1.config(fg="#4EA68D", bg="#F2F2F2")
+        
+
+    label_logo = tk.Label(frame_carregar, text="CARREGAR JOGO", fg="#4EA68D", bg="#A67C58", font=("Agency FB", 75, "bold"))
+    label_logo.pack()
+
+    label = tk.Label(frame_carregar, text="Jogos salvos", fg="#F2994B", bg="#A67C58", font=("Agency FB", 25, "bold"))
+    label.pack()
+
+    save1 = tk.Button(frame_carregar, text="JOGO SALVO 01", width=50, height=0, fg="#4EA68D", bg="#F2F2F2", font=("Agency FB", 15, "bold"), bd=5, relief="ridge", command=escolherSave1)
+    save1.pack(pady=10, padx=5)
+
+    save2 = tk.Button(frame_carregar, text="JOGO SALVO 02", width=50, height=0, fg="#4EA68D", bg="#F2F2F2", font=("Agency FB", 15, "bold"), bd=5, relief="ridge", command=escolherSave2)
+    save2.pack(pady=10, padx=5)
+
+    save3 = tk.Button(frame_carregar, text="JOGO SALVO 03", width=50, height=0, fg="#4EA68D", bg="#F2F2F2", font=("Agency FB", 15, "bold"), bd=5, relief="ridge", command=escolherSave3)
+    save3.pack(pady=10, padx=5)
+
+    save4 = tk.Button(frame_carregar, text="JOGO SALVO 04", width=50, height=0, fg="#4EA68D", bg="#F2F2F2", font=("Agency FB", 15, "bold"), bd=5, relief="ridge", command=escolherSave4)
+    save4.pack(pady=10, padx=5)
+
+    botao_carregar = tk.Button(frame_carregar, text="Carregar", bg="#4EA68D", font=("Agency FB", 15), fg="white", bd=5, relief="ridge")
+    botao_carregar.pack(pady=10)
+
+    botao_voltar = tk.Button(frame_carregar, text="Voltar", bg="#4EA68D", font=("Agency FB", 15), fg="white", bd=5, relief="ridge", command=frame1)
+    botao_voltar.pack(pady=10, side="bottom")
+
+
 janela = tk.Tk()
 
 janela.title("REPUST RPG")
 janela.geometry("1000x900")
 janela.configure(bg="#A67C58", pady=100)
-
 
 frame1()
 
