@@ -68,7 +68,7 @@ def frame2():
         classe4.config(fg="#4EA68D", bg="#F2F2F2")
         
     def pegarLadino():
-        personagem["classe"] = "ladino"
+        personagem["classe"] = "paladino"
         classe3.config(bg="#F2994B", fg="#F2F2F2")
         classe2.config(fg="#4EA68D", bg="#F2F2F2")
         classe1.config(fg="#4EA68D", bg="#F2F2F2")
