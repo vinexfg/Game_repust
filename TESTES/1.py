@@ -1,11 +1,15 @@
 import tkinter as tk
 
+##  Menu Inicial
 def frame1():
     for widget in janela.winfo_children():
         widget.destroy()
 
     frame_menu = tk.Frame(janela, bg="#A67C58")
     frame_menu.pack(fill="both", expand=True)
+
+    def sairJogo():
+        janela.destroy()
 
     ##----------------------------------------------------------------------------------------
     ## FRAME MENU
@@ -24,10 +28,10 @@ def frame1():
     botao_carregar = tk.Button(frame_menu, text="CARREGAR JOGO", bg="#4EA68D", font=("Agency FB", 20), fg="#F2F2F2", bd=5, relief="ridge", command=frame3)
     botao_carregar.pack(pady=10)
 
-    botao_conf = tk.Button(frame_menu, text="CONFIGURAÇÕES", bg="#4EA68D", font=("Agency FB", 20), fg="#F2F2F2", bd=5, relief="ridge")
+    botao_conf = tk.Button(frame_menu, text="CONFIGURAÇÕES", bg="#4EA68D", font=("Agency FB", 20), fg="#F2F2F2", bd=5, relief="ridge", command=frame4)
     botao_conf.pack(pady=10)
 
-    botao_sair = tk.Button(frame_menu, text="SAIR", bg="#4EA68D", font=("Agency FB", 20), fg="#F2F2F2", bd=5, relief="ridge")
+    botao_sair = tk.Button(frame_menu, text="SAIR", bg="#4EA68D", font=("Agency FB", 20), fg="#F2F2F2", bd=5, relief="ridge", command=sairJogo)
     botao_sair.pack(pady=10)
 
     label_creditos = tk.Label(frame_menu, text="@rodrigo_silva @vinicius_almeida", fg="#F2F2F2", bg="#A67C58", font=("Agency FB", 10, "bold"))
@@ -35,6 +39,7 @@ def frame1():
 
     ##----------------------------------------------------------------------------------------
 
+##  Menu Novo Jogo
 def frame2():
     for widget in janela.winfo_children():
         widget.destroy()
@@ -196,9 +201,18 @@ def frame2():
     botao_voltar = tk.Button(frame_novo, text="Voltar", bg="#4EA68D", font=("Agency FB", 15), fg="white", bd=5, relief="ridge", command=frame1)
     botao_voltar.pack(pady=10, side="bottom")
 
+    ## Escolher Save de Salvamento
+
+    def novoSave():
+        for widget in janela.winfo_children():
+            widget.destroy()
+        frame_salvar = tk.Frame(janela, bg="#A67C58")
+        frame_salvar.pack(fill="both", expand=True)
+
 
     ##----------------------------------------------------------------------------------------
 
+##  Menu Carregar Jogo
 def frame3():
     for widget in janela.winfo_children():
         widget.destroy()
@@ -261,7 +275,33 @@ def frame3():
     botao_voltar = tk.Button(frame_carregar, text="Voltar", bg="#4EA68D", font=("Agency FB", 15), fg="white", bd=5, relief="ridge", command=frame1)
     botao_voltar.pack(pady=10, side="bottom")
 
+##  Menu Configurações
+def frame4():
+    for widget in janela.winfo_children():
+        widget.destroy()
 
+    frame_conf = tk.Frame(janela, bg="#A67C58")
+    frame_conf.pack(fill="both", expand=True)
+
+    
+
+    label_logo = tk.Label(frame_conf, text="CONFIGURAÇÕES", fg="#4EA68D", bg="#A67C58", font=("Agency FB", 75, "bold"))
+    label_logo.pack()
+
+    label = tk.Label(frame_conf, text="Configuração do jogo", fg="#F2994B", bg="#A67C58", font=("Agency FB", 25, "bold"))
+    label.pack()
+
+
+    botao_voltar = tk.Button(frame_conf, text="Voltar", bg="#4EA68D", font=("Agency FB", 15), fg="white", bd=5, relief="ridge", command=frame1)
+    botao_voltar.pack(pady=10, side="bottom")
+
+
+
+
+
+
+
+## Janela Principal
 janela = tk.Tk()
 
 janela.title("REPUST RPG")
